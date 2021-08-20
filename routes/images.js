@@ -5,8 +5,8 @@ const express = require("express");
 //app.use('/images', express.static('images')); 
 
 const path = require('path')
-const imagesDirectory = '/Users/Backend/node/projects/experiments'
-const imageFolder = '1'
+const imagesDirectory = '/Users/Backend/node/projects/1/mongoose'
+const imageFolder = 'uploads'
 
 
 module.exports = function(app) {
