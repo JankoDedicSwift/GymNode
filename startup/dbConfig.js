@@ -43,7 +43,8 @@ console.log("Come on",'('+firstName+'","'+lastName+'","'+phoneNumber+'")');
       const extName = path.extname(files.profilePic.name);
       const id = rows.insertId
       const fullName = firstName+lastName+id+extName;
-      var newPath = path.join('/Users/Backend/node/projects/1/mongoose/', 'uploads')
+    //  '/Users/Backend/node/projects/1/mongoose/'
+      var newPath = path.join('./', 'uploads')
               + '/'+fullName
       var rawData = fs.readFileSync(oldPath)
     
@@ -78,8 +79,8 @@ router.post('/updateImage', (req, res, next) => {
 
       var oldPath = files.profilePic.path;
       
-      
-      var newPath = path.join('/Users/Backend/node/projects/1/mongoose/', 'uploads')
+     // '/Users/Backend/node/projects/1/mongoose/'
+      var newPath = path.join('./', 'uploads')
               + '/'+imgPath
       var rawData = fs.readFileSync(oldPath)
     
@@ -152,6 +153,7 @@ function getToday() {
         });
         });
 router.get('/', function(req, res) {
+
   res.send('GET handler for /dogs route.');
 });
 
