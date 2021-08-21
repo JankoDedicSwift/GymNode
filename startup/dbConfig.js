@@ -25,6 +25,8 @@ const formidable = require('formidable');
 
 var excel = require('excel4node');
 
+
+
 router.post('/upload', (req, res, next) => {
 
   const form = new formidable.IncomingForm();
@@ -33,12 +35,16 @@ router.post('/upload', (req, res, next) => {
     const firstName = fields.firstName;
 const lastName = fields.lastName;
 const phoneNumber = fields.phoneNumber;
+console.log("Wtf baby")
 console.log("Come on",'('+firstName+'","'+lastName+'","'+phoneNumber+'")');
     pool.query('INSERT INTO member (firstname,lastname,phoneNumber) VALUES ("'+firstName+'","'+lastName+'","'+phoneNumber+'");', function(err, rows, fields) {
-      console.log("Fuck",err);
       if (err) throw err;
-      console.log('Damn',rows.insertId);
 
+      if (typeof variable === 'undefined'){
+        res.send("Successfully uploaded");
+        console.log("Wtf baby")
+        return
+      }
       var oldPath = files.profilePic.path;
       const extName = path.extname(files.profilePic.name);
       const id = rows.insertId
